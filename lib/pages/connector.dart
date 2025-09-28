@@ -75,8 +75,12 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
     await FlutterBluePlus.startScan(timeout: const Duration(seconds: 15));
 
     _scanResultsSubscription = FlutterBluePlus.scanResults.listen((results) {
+       print("Scan results: ${results.length}");
+       for (var result in results) {
+         print("Found device: ${result.device.remoteId} with name: ${result.device.platformName}");
+       }
        setState(() {
-        _scanResults = results.where((r) => r.device.platformName.isNotEmpty).toList();
+        _scanResults = results;
       });
     });
 
@@ -225,7 +229,7 @@ class _BluetoothScreenState extends State<BluetoothScreen> {
                   return Card(
                     child: ListTile(
                       leading: Icon(Icons.bluetooth),
-                      title: Text(result.device.platformName),
+                      title: Text(result.device.platformName.isNotEmpty ? result.device.platformName : 'Unknown Device'),
                       subtitle: Text(result.device.remoteId.toString()),
                       trailing: Icon(Icons.arrow_forward_ios),
                       onTap: _connectedDevice == null ? () => _connectToDevice(result.device) : null,
