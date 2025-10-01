@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/connector.dart';
+import 'package:myapp/pages/DiscoveryScreen.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const App());
@@ -16,9 +18,7 @@ class App extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/',
-      routes: {
-        '/': (context) => const BluetoothScreen(),
-      },
+      routes: {'/': (context) => const DiscoveryScreen()},
     );
   }
 }

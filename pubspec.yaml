@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   permission_handler: ^11.0.1
   flutter_blue_plus: ^2.0.0
+  multicast_dns: ^0.3.2
+  uuid: ^4.3.3
+
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +50,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  mockito: ^5.5.1
+  build_runner: ^2.9.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
